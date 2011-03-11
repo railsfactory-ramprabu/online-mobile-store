@@ -1,0 +1,14 @@
+
+<% if @search_loc.blank?%>
+<h3>Sorry,location detail is not found</h3>
+<%else%>
+<table border=1>
+<tr><td><h3>Name</h3></td><td><h3>Address</h3></td><td><h3>Contactno</h3></td></tr>
+<% for i in @search_loc%>
+<tr><td><h5><%=i.name%></h5></td>
+<td><h5><%=i.address%></h5></td>
+<td><h5><%=i.contactno%></h5></td></tr>
+<%end%>
+<table>
+<%end%>
+

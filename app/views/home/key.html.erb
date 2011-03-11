@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<body>
+<h1>goog.ui.KeyboardShortcutHandler</h1>
+<div id="text"></div>
+<script src="/closure-library/closure/goog/base.js"></script>
+<script src="/javascripts/key.js"></script>
+<script>
+
+    function showTriggered(event) {
+			  
+      window.location.href="/key123"
+    }
+
+   var shortcutHandler = new goog.ui.KeyboardShortcutHandler(document);
+	 
+   var CTRL = goog.ui.KeyboardShortcutHandler.Modifiers.CTRL;
+	 
+	
+   shortcutHandler.registerShortcut('K', 'k'); 
+	 
+	 shortcutHandler.registerShortcut('CTRL_K',goog.events.KeyCodes.K, CTRL);
+		
+
+  goog.events.listen(shortcutHandler,goog.ui.KeyboardShortcutHandler.EventType.SHORTCUT_TRIGGERED,showTriggered);
+	
+</script>
+
+</body>
+</html>
+
+
+
+

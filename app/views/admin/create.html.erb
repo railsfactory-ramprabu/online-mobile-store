@@ -1,0 +1,12 @@
+<h1>Admin Page</h1>
+<table>
+<%= form_for :data, :url=>{:action=>"edit"} do |f|%>
+<tr><td><%= f.label :"LogId" %></td><%=flash[:error]%>
+<td><%= f.text_field:logid%></td></tr>
+<tr><td><%= f.label :"Password" %></td>
+<td><%= f.password_field :pwd%></td></tr><br>
+<tr><td><%= f.submit :"Click"%></td></tr>
+<% end %>
+</table>
+
+

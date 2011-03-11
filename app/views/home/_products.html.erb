@@ -1,0 +1,39 @@
+
+
+
+		<div id="example">
+        <%	@products.each do |p| %>
+				<div class="mobile_list">
+							<h3><%=p.p_name %></h3> 
+							<a href= "<%=lightbox_display_path(:id=>p.id)%>" rel="example"><img src="<%=p.paper.url%>" width="72" height="72"  /></a>
+							<p class="price">Rs.<%=p.our_price %></p>
+					<div class="links">
+							<a href="">&raquo; Specification</a>
+							<a href="">&raquo; Review</a>
+							<a href="">&raquo; buy</a>
+								
+       	</div>
+	</div>
+					<%end%>		
+	</div>
+					
+					
+				<div class="digg_pagination">
+  <%= will_paginate @products %>
+	</div>
+
+		
+		    <script type="text/javascript">
+				    
+		
+		$("a[rel='example']").colorbox({title: function(){
+		
+    var url = $(this).attr('href');
+    
+}});
+		
+		
+		
+		</script>
+
+

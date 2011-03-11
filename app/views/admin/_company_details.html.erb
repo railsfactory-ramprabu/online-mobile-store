@@ -1,0 +1,18 @@
+
+<%= form_for :data, :url =>save_path,:remote=>true do |f| -%>
+
+<p><%= label_tag 'Company name' %><br />
+<%= f.text_field :name, :id=>"company_name"%></p>
+ 
+
+<p><%=f.submit 'Click',:onclick=>" return company_info()" %></p>
+
+<%end%>
+
+
+
+
+
+
+
+

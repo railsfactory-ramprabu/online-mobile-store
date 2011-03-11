@@ -1,0 +1,43 @@
+
+ <%= form_for :feature, :url =>feature_info_path,:html =>{:multipart => true,:target=>"frame"} do |f| %>
+
+  <p><%= label_tag 'Select your Product name' %><br />
+  <%= select("feature", "product_id", Product.all.map {|a| [a.p_name, a.id]}) %></p>
+	
+	
+ <p><%= label_tag 'Size' %><br />
+ <%= f.text_field :size, :id=>"size"%></p>
+ 
+  <p><%= label_tag 'weight' %><br />
+ <%= f.text_field :weight, :id=>"weight"%></p>
+ 
+ 	
+	<p><%= label_tag 'Camera' %><br />
+	<%= f.select(:camera,options_for_select([['yes','1'],['no','0']]))%></p>
+
+	
+   <p><%= label_tag 'Bluetooth' %><br />
+   <%= f.select(:bluetooth, options_for_select([['yes','1'],['no','0']]))%></p>
+
+	 
+	 
+	 <p><%= label_tag 'Music Player' %><br />
+  	<%= f.select(:player, options_for_select([['yes','1'],['no','0']]))%></p>
+
+	 
+	 
+	<p><%= label_tag 'FM Radio' %><br />
+  <%= f.select(:fmradio, options_for_select([['yes','1'],['no','0']]))%></p>
+
+	
+	  <p><%= label_tag 'Gprs' %><br />
+   	<%= f.select(:gprs, options_for_select([['yes','1'],['no','0']]))%></p>
+
+	<br /><br /><br />
+
+<p><%=f.submit 'Enter',:onclick=>"return  feature_info()"%></p>
+
+<%end%>
+
+ <iframe id='frame' name="frame" style="display:none;"></iframe>
+

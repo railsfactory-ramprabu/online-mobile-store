@@ -1,0 +1,62 @@
+
+	<tr> 
+	  
+    <td height="18" valign="middle" bgcolor="#49452C" class="menutext" nowrap>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<% if !current_admin %>
+		<%= select("product", "mobile_id", Mobile.all.map {|a| [a.name, a.id]},{:prompt=>"MOBILES"})%>
+    <%= select(:feature, :feature_type, [['Camera','camera'], ['Bluetooth','bluetooth'], ['Player','player'], ['FMRadio','fmradio'], ['Gprs','gprs']], {:prompt=>"ACCESSORIES"}) %>&nbsp;&nbsp;&nbsp;&nbsp;
+  	<% if current_user && !current_admin%>
+ 	 	<%=link_to "Review",review_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	 	<%=link_to "SearchLocator",search_location_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  	<%=link_to "Drag & Drop",drag_drop_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  	<%=link_to "Drag & Drop (Anothermethod)",drag_drop_other_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  	<%=link_to "Delayed_jobs",test_email_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%end%>
+   
+	   
+				
+   
+	 <div style="float:right;margin-right:80px;">
+	 <% if !current_user%>
+	 <%=link_to "Login",new_user_session_path,:class=>"menutext"%>&nbsp;&nbsp;&nbsp;
+	 <%=link_to "Signup", new_user_registration_path,:class=>"menutext"%>&nbsp;&nbsp;&nbsp;</div>
+	 <%end%>
+	 <%end%>			
+	 
+
+	 
+	 
+	 	
+	<% if current_admin %>
+	 	<%=link_to "Home",home_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%=link_to  "About us(CTRL+U)",about_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%=link_to "Add Company(CTRL+C)",company_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%=link_to "Add Product(CTRL+P)",product_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  	<%=link_to "Add Product_features(CTRL+F)",product_feature_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+  	<%=link_to "Add Location_details(shift+f12)",locate_path,:class=>"menutext",:remote=>true%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+  	<%=link_to "logout(CTRL+L)",destroy_user_session_path,:class=>"menutext"%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+		<%end%>
+		
+		
+
+		<% if current_user && !current_admin%>
+   	<%=link_to "logout",destroy_user_session_path,:class=>"menutext"%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+		<%end%>
+		
+	   	  
+	</td>
+  </tr>
+	
+
+	
+	
+	
+	
+
+
+
+
+	
+
+	

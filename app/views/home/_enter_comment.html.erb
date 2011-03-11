@@ -1,0 +1,54 @@
+
+
+<%= form_for :data,:html=>{:name=>"form1"} do |f|%>
+
+ <p><%=f.label 'Comment',:class=>"comment_label" %><br />
+ 
+ <%= f.text_area :user_comment,:id=>"comment_data",:size =>"50x5"%></p>
+ 
+
+<tr><td><%= f.submit :"Add",:class=>"add",:onclick=>"add();return false;"%></td></tr>
+
+<tr><td><%= f.submit :"Cancel",:class=>"cancel",:onclick=>"cancel();return false;"%></td></tr>
+
+<%end%>
+
+
+<script>
+
+function add()
+{
+var a=<%=@id%>
+
+var comment=$("#comment_data").val();
+
+ $.ajax({
+              type: 'POST',
+							data :{comment_value : comment},
+							url:"/comment_info/"+a,
+							success:function(data){
+						  $('#user_comment').append(data);
+							}
+													 
+						});
+							$("#comment_display").show();	      
+							$("#comments_exec").hide();	      
+						
+}
+
+
+function cancel()
+{
+  $("#comment").hide();
+  $(".add").hide();
+	$(".cancel").hide();
+	$(".comment_label").hide();
+	$("#add_comment").show();
+	$("#comment_data").hide();
+	}
+
+
+</script>
+
+
+ 

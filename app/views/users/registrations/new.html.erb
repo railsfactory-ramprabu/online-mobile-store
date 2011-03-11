@@ -1,0 +1,51 @@
+
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url =>registration_path(resource_name),:html =>{:multipart => true }) do |f| %>
+  <%= devise_error_messages! %>
+  
+  <p><%= f.label :Name %><br />
+  <%= f.text_field :name %></p>
+	
+<p><%= label_tag 'Upload Image' %><br/>
+<%= f.file_field :ram %></p>
+
+  <p><%= f.label :email %><br />
+  <%= f.text_field :email %></p>
+
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></p>
+  
+
+  <p><%= f.label :date %><br />
+
+  <%= f.calendar_date_select :select_date %></p>
+  
+  <p><%= f.label :Address %><br />
+  <%= f.text_area :address,:size =>"34x5" %></p>
+  
+  <p><%= f.label :Country %><br />
+  <%= f.text_field :country %></p>
+  
+  <p><%= f.label :State %><br />
+  <%= f.text_field :state %></p>
+  
+  <p><%= f.label :City %><br />
+  <%= f.text_field :city %></p>
+  
+  
+  <p><%= f.label :Pincode %><br />
+  <%= f.text_field :pincode %></p>
+  
+  
+  <p><%= f.label :Mobileno %><br />
+  <%= f.text_field :mobileno %></p>
+
+  <p><%= f.submit "Sign up" %></p>
+  <% end %>
+
+<%= render :partial => "devise/shared/links" %>

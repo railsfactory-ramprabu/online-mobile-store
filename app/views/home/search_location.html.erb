@@ -1,0 +1,47 @@
+ <!doctype html>
+<html>
+<body>
+
+
+ <p>
+    To Find the Location Name:<br>
+		<input id="txtInput1" style="width:300px"/>
+		<button type="button" onClick="search()">Go</button>
+  </p>
+
+ <script src="/closure-library/closure/goog/base.js"></script>
+
+	<div id="search_locator"></div>
+		
+<script>
+    goog.require('goog.ui.AutoComplete.Basic');
+</script>
+
+ <script type="text/javascript">
+   
+    var name = new Array();
+		name='<%=@locator%>';
+		name=name.split(',');
+		var input=document.getElementById('txtInput1');
+    var ac1 = new goog.ui.AutoComplete.Basic(name,input, false);
+		
+		function search()
+		{
+		var loc=$("#txtInput1").val();
+		
+    $.ajax({
+              type: 'POST',
+							data :{location_name : loc},
+							url:"/location_identify/",
+							success:function(data){
+						  $('#search_locator').html(data);
+							}
+													 
+						});
+		}
+   
+	 </script>
+
+
+</body>
+</html>

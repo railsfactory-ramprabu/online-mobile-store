@@ -1,0 +1,62 @@
+<html>
+<head>
+  <title>goog.events.FileDropHandler Demo</title>
+	<script src="/closure-library/closure/goog/base.js"></script>
+  <script>
+ goog.require("goog.dom");
+goog.require("goog.net.XhrIo");
+goog.require("goog.structs.Map");
+goog.require("goog.Uri.QueryData");
+  </script>
+
+ 	
+</head>
+<body>
+  <script>
+	
+    // create the xhr object
+		
+    var request = new goog.net.XhrIo();
+                
+    // create a QueryData object by initializing it with a simple Map
+		
+    var data = goog.Uri.QueryData.createFromMap(new goog.structs.Map({
+        title: "Test ajax data",
+        content: "foo",
+        param1: 2500
+    }));
+                
+    // listen to complete event
+		
+    goog.events.listen(request, "complete", function(){
+                            
+        if (request.isSuccess()) {
+                        
+            // inject response into the dom
+						
+            goog.dom.$("response").innerHTML = request.getResponseText();
+                        
+            // print confirm to the console
+						
+            console.log("Satus code: ", request.getStatus(), " - ", request.getStatusText());
+                        
+        } else {
+                        
+            // print error info to the console
+						
+            console.log(
+                "Something went wrong in the ajax call. Error code: ", request.getLastErrorCode(),
+                " - message: ", request.getLastError()
+            );
+                        
+        }
+                    
+    });
+                
+    // start the request by setting POST method and passing
+    // the data object converted to a queryString
+    request.send("ajax-test.jsp", "POST", data.toString());
+
+  </script>
+	</body>
+	</html>

@@ -1,0 +1,55 @@
+
+<h1><%=@product.p_name%></h1>
+
+
+ 
+<a href= ""><img src="<%=@product.paper.url%>" width="70" height="100"></a>
+
+
+ <% if @comment.blank?%>
+		<div id="comments_exec">	<h2>There is no Comments </h2></div>
+ <%else%>
+    <div id="comment_display"><h2>Comments</h2></div>
+		<table>
+	 <% for i in 0..@count-1%>
+	 	 	<tr><td><img src="<%=@image[i]%>" width="40" height="50"></td><td><h5><%=@comment_arr[i]%></h5></td></tr> 
+	 <% end %>
+	 </table>
+	 <%end%>
+
+
+	 
+ 
+<span id='comment_information'></span>
+
+ 
+<div id="user_comment"></div>
+
+<div id="add_comment">
+
+<button type="button" OnClick="comment(<%=@product.id%>)">Add Comment!</button>
+
+</div>
+
+<div id="comment_detail"></div>
+
+
+
+<script>
+
+function comment(id)
+{
+  
+	 $('#add_comment').hide();
+   $.ajax({
+							url:"/comment_box/"+id,
+							success:function(data){
+								    $('#comment_detail').html(data);
+							}
+						});
+	}
+
+
+</script>
+
+

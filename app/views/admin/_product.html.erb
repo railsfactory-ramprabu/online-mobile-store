@@ -1,0 +1,32 @@
+
+
+ <%= form_for :product,:url=>product_info_path,:html =>{ :multipart => true,:target=>"frame" } do |f| %>
+ 
+<p><%= label_tag 'Select your Company name' %><br />
+ 
+ <%= select("product", "mobile_id", Mobile.all.map {|a| [a.name, a.id]}) %></p>
+   
+<p><%= label_tag 'Product name' %><br />
+<%= f.text_field :p_name, :id=>"product_name"%></p>
+
+<p><%= label_tag 'Product Image' %><br />
+<%= f.file_field :paper %></p>
+
+
+<p><%= label_tag 'Mrp' %><br />
+<%= f.text_field :p_mrp, :id=>"mrp"%></p>
+
+
+<p><%= label_tag 'Our Price' %><br />
+<%= f.text_field :our_price, :id=>"price"%><p>
+
+<p><%= label_tag 'Save Amount' %><br />
+<%= f.text_field :save_amount, :id=>"s_amount"%></p>
+
+ 
+<p><%=f.submit 'Click',:onclick=>"return product_info()" %></p>
+
+<%end%>
+
+  <iframe id='frame' name="frame" style="display:none;"></iframe>
+

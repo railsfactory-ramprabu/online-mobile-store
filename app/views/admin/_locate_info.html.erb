@@ -1,0 +1,21 @@
+ <%= form_for :locate, :url =>location_detail_path,:remote=>true do |f| %>
+
+ 
+<p><%= label_tag 'Location name' %><br />
+<%= f.text_field :name, :id=>"location_name"%></p>
+
+<p><%= label_tag 'Address' %><br />
+<%= f.text_area :address, :id=>"address",:size =>"40x5"%></p>
+
+
+<p><%= label_tag 'ContactNo' %><br />
+<%= f.text_field :contactno, :id=>"contactno"%></p>
+
+
+<p><%=f.submit 'Click',:onclick=>" return location_info()" %></p>
+
+<%end%>
+
+
+
+

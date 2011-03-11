@@ -1,0 +1,18 @@
+
+
+
+
+				<div class="mobile_list">
+				 <%	@features.each do |f| %>
+							<h3><%=f.p_name %></h3> 
+							<a href= ""><%=image_tag f.paper.url%>
+							<p class="price">Rs.<%=f.our_price %></p>
+					<div class="links">
+							<a href="">&raquo; Specification</a>
+							<a href="">&raquo; Review</a>
+							<a href="">&raquo; buy</a>
+								
+       	</div>
+				<%end%>
+				</div>
+			
